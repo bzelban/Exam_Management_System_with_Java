@@ -1,7 +1,11 @@
 // SE311, Software Verification and Validation Project
-//Exam Management System
+// Exam Management System
 
-//Observer, Serhat UZUNBAYIR
+/*
+~~~~~~~~~~~~~~~~~~~~~~ Observer ~~~~~~~~~~~~~~~~~~~~~~~~
+         Sir Lancelot Lord Serhat UZUNBAYIR
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+*/
 
 
 /*
@@ -15,9 +19,48 @@
 
 
 
+public class test
+{
+
+    public static _login(String ID, String passwd)
+    {
+        //To-Do Need a database module to connect (Better JDBS)
+        /*
+            Design:
+
+            USER ID  /  PASSWORD  /  ACCOUNT TYPE  /  LECTURE CODE(s)
+            .           .            .                .
+            .           .            .                .
+            .           .            .                .
+            .           .            .                .
+
+         */
+
+    }
+
+    public static _getExamDate(String ID)
+    {
+        //To-Do Need a database module to connect for EXAM DATES THAT RESPONSIBLE TO A SINGLE LECTURE CODE
+
+        /*
+            Design:
+
+            LECTURE CODE  /  LECTURE NAME  /  EXAM DATE  / EXAM HOUR
+            .                .                .            .
+            .                .                .            .
+            .                .                .            .
+            .                .                .            .
+
+         */
+    }
+
+    public static _setExamDate(String ID)
+    {
+        //
+    }
 
 
-public class test {
+
 
 
     public static void main(String[] args)
