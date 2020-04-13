@@ -86,6 +86,8 @@ import java.util.*;
 import java.io.*;
 import java.sql.*;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class test
 {
@@ -96,8 +98,85 @@ public class test
 
 
     }
+    public static class database {
+        private String id = "root";
+        private String pass = "";
 
-    public void _login(String ID, String passwd)
+        private String db_ismi = "exam";
+        private String host = "localhost";
+
+        private int port = 3306;
+
+
+        private Connection con = null;
+        private PreparedStatement preparedStatement = null;
+
+        public database() {
+            String url = "jdbc:mysql://" + host + ":" + port + "/" + db_ismi;
+            try {
+                Class.forName("com.mysql.jdbc.Driver");
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            }
+            try {
+                con = DriverManager.getConnection(url, id, pass);
+                System.out.println("Bağlantı başarılı");
+            } catch (SQLException e) {
+                e.printStackTrace();
+                System.out.println("Bağlantı başarısız...");
+            }
+
+        }
+        public void DisplayUserTable(){
+            String ask ="Select * From usertable";
+
+            try {
+                Statement statement = con.createStatement();
+                ResultSet rs = statement.executeQuery(ask);
+
+                while(rs.next()){
+
+                    String userID = rs.getString("userID");
+                    String Password = rs.getString("Password");
+                    String AccType = rs.getString("AccType");
+                    String lectureCode = rs.getString("lectureCode");
+                    System.out.println("User ID:" +userID+ "\t User pass:" +Password+ "\t Account Type : " +AccType+ "\t LectureCode: "+lectureCode);
+                }
+
+
+            } catch (SQLException ex) {
+                Logger.getLogger(database.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+        }
+        public void AddUser(){
+            
+        }
+
+        public void BringAExam(){
+            String sorgu = "Select* From usertable where userID = ?";
+            try {
+                preparedStatement = con.prepareStatement(sorgu);
+                preparedStatement.setString(1,"userID");
+                ResultSet rs = preparedStatement.executeQuery();
+                while(rs.next()){
+                    String userID = rs.getString("userID");
+                    String Password = rs.getString("Password");
+                    String AccType = rs.getString("AccType");
+                    String lectureCode = rs.getString("lectureCode");
+                    System.out.println("User ID:" +userID+ "\t User pass:" +Password+ "\t Account Type : " +AccType+ "\t LectureCode: "+lectureCode);
+
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+
+    }
+
+
+
+      /*  public void _login(String ID, String passwd)
     {
         boolean temp = true;
         boolean tempPass = true;
@@ -279,10 +358,16 @@ public class test
 
 
 
+       */
 
     public static void main(String[] args) throws FileNotFoundException {
 
         System.out.println("WELCOME TO EXAM MANAGEMENT SYSTEM");
+        database d = new database();
+        d.DisplayUserTable();
+
+
+
 
 
 
