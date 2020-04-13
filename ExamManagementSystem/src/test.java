@@ -3,7 +3,7 @@
 
 /*
 ~~~~~~~~~~~~~~~~~~~~~~ Observer ~~~~~~~~~~~~~~~~~~~~~~~~
-         Sir, Lancelot, Highlander, Lord, His Holiness Serhat UZUNBAYIR
+         Lancelot, Highlander, Lord, His Holiness, Sir S. UZUNBAYIR
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 */
 
@@ -82,37 +82,122 @@
 
 
 
-import java.util.Scanner;
+import java.util.*;
+import java.io.*;
+import java.sql.*;
+import java.util.Date;
 
 public class test
 {
 
+    public static void _topSector() {
+
+
+
+
+    }
+
     public void _login(String ID, String passwd)
     {
-        //To-Do Need a database module to connect (Better JDBS)
-        //To-Do Need a Return Type as BOOLEAN
+        boolean temp = true;
+        boolean tempPass = true;
+        int tempInt = 3;
 
-        //Annotated Design: USER TABLE
+       while (temp)
+       {
+           if ( ID == db.ID)
+           {
+               while(tempPass)
+               {
+                   if(passwd == db.PASSWORD)
+                   {
+                       _consoleMenu();
+                   }
+                   else
+                   {
+                       System.out.println("Wrong Pass");
+
+                   }
+                   tempInt --;
+                   System.out.println(tempInt + " try left ");
+               }
+           }
+           else
+           {
+               System.out.println("Wrong ID");
+           }
+            tempInt --;
+           System.out.println(tempInt + " try left");
+
+           if(tempInt == 0)
+           {
+               temp = false;
+           }
+
+           System.out.println("Worng Credential Combination, Terminating");
+       }
+
 
     }
 
     public void _getExamDate(String ID)
     {
-        //To-Do Need a database module to connect for EXAM DATES THAT RESPONSIBLE TO A SINGLE LECTURE CODE
-        //To-Do Need a Return Type as DATE
 
-        //Annotated Design: LECTURE TABLE
+        if (db.ID == ID)
+        {
+            String tempLec = db.LECTURE;
+
+            if(tempLec == db.EXAMDATE )
+            {
+               if(db.EXAMDATE.notNull())
+               {
+                   System.out.println(db.EXAMDATE);
+               }
+               else
+               {
+                   System.out.println("no exam date found");
+               }
+            }
+
+
+        }
+        else
+        {
+            System.out.println("Current Lecture not Found!");
+        }
 
     }
 
-    public void _setExamDate(String ID)
+    public void _getExamScore(String ID)
     {
-        //To-Do Need a database module to connect for SET DATES THAT RESPONSIBLE TO A SINGLE LECTURE CODE
+        if(db.ID == ID)
+        {
+            String tempLec = db.LECTURE;
 
-        //Annotated Design: LECTURE TABLE
+            if(tempLec == db.EXAMSCORE)
+            {
+                if(db.EXAMSCORE.notNull())
+                {
+                    System.out.println(db.EXAMSCORE);
+                }
+                else
+                {
+                    System.out.println("no exam score found");
+                }
+            }
+        }
+    }
 
-        //This block Controls the Overlap
-        if()
+    public void _setExamDate()
+    {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("input a lecture");
+        String tempLec = sc.nextLine();
+
+        System.out.println("input an exam date");
+        Date tempDate = sc.nextDate();
+
+        if(db.EXAMDATE =! tempDate)
         {
 
         }
@@ -126,11 +211,18 @@ public class test
 
 
 
-    public static void _consoleMenu()
+    public static void _consoleMenu(String ID)
     {
-        //To-Do: This part is to show and control
-        String tempID = "";
-        String tempPASS= "";
+        int freshPass = current.DATE - db.PASSDATE;
+        Scanner sc = new Scanner(System.in);
+
+        if( freshPass > 180 )
+        {
+            System.out.println("Your pass isnt fresh, Change it.\n New Pass:");
+            db.PASSWORD = sc.nextLine();
+            System.out.println("Changed");
+        }
+
         boolean menuCycle = true;
         int tempSwitch = 0;
         Scanner sc = new Scanner(System.in);
@@ -149,14 +241,17 @@ public class test
             {
                 case 1:
 
+                    _getExamDate(ID);
                     break;
 
                 case 2:
 
+                    _getExamScore(ID);
                     break;
 
                 case 3:
-
+                    System.out.println("Bye");
+                    System.exit(31);
                     break;
             }
 
@@ -166,7 +261,8 @@ public class test
         //LCT While Loop
         while ( menuCycle == true )
         {
-            System.out.println("Select One:\n\t(1) to Show Exam Dates\n\t(2) to See Exam Scores\n\t(3) to Terminate");
+            System.out.println("Select One:\n\t(1) to Show Exam Dates\n\t(2) add Exam Scores\n\t(3) to Terminate");
+
 
         }
 
@@ -174,7 +270,7 @@ public class test
         //ADMIN While Loop
         while ( menuCycle == true )
         {
-
+            System.out.println("Automated");
         }
 
 
@@ -184,13 +280,12 @@ public class test
 
 
 
-    public static void main(String[] args)
-    {
-        System.out.println("1 2 3 mic check");
+    public static void main(String[] args) throws FileNotFoundException {
 
         System.out.println("WELCOME TO EXAM MANAGEMENT SYSTEM");
 
-        _consoleMenu();
+
+
 
 
 
