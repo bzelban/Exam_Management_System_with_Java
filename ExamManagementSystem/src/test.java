@@ -105,6 +105,7 @@ class _lecture{
         this.CODE = CODE; this.NAME = NAME; this.DATE = DATE; this.HOUR = HOUR;
     }
 }
+
 class _result{
     String ID; String CODE; String MT1; String MT2; String FINAL;
     public _result(String ID, String CODE, String MT1, String MT2, String FINAL)
@@ -142,7 +143,8 @@ public class test
     {
 
         ArrayList<_user> userList = new ArrayList<>();
-        userList.add(new _user("0000", "0000", "AAA", "XXX", "1970-1-1"));
+        _user x = new _user("0000", "0000", "AAA", "XXX", "1970-1-1");
+        userList.add(x);
         userList.add(new _user("ID", "PASSWORD", "TYPE", "CODE", "PWDATE"));
         userList.add(new _user("1111", "1111", "DEV", "", "2020-1-1"));
         userList.add(new _user("2222", "2222", "LCT", "", "2020-1-1"));
@@ -338,12 +340,14 @@ public class test
     */
     public static void main(String[] args) throws FileNotFoundException {
 
-        System.out.println("WELCOME TO EXAM MANAGEMENT SYSTEM");
+        System.out.println("WELCOME TO EXAM MANAGEMENT SYSTEM\n");
 
 
-        ArrayList<_user> testList = _createUserTable();
+        //ArrayList<_user> testList = _createUserTable();
 
-        System.out.println(testList.toString());
+        System.out.println(_createUserTable());
+
+
 
 
 
