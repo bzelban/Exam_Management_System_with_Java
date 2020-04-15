@@ -41,7 +41,7 @@ class _lecture {
 
     public String getSUBJ() { return SUBJ; }
 
-    public void setSUBJ() { this.SUBJ = SUBJ; }
+    public void setSUBJ(String SUBJ) { this.SUBJ = SUBJ; }
 
 
 
