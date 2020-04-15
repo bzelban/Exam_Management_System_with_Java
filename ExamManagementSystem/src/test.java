@@ -420,7 +420,7 @@ public class test {
         System.out.println(" ");
         _result.print(denemeResult);
 
-
+        _START(denemeUser, denemeLecture, denemeResult);
     }
 
 
