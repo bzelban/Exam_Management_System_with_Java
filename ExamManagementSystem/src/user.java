@@ -88,5 +88,4 @@ class _user {
             System.out.println(toString(userTable.get(i)));
         }
     }
-
 }
