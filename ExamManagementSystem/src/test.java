@@ -228,7 +228,7 @@ public class test {
     {
         System.out.println("WELCOME TO EXAM MANAGEMENT SYSTEM\n");
 
-        _login(userTest);
+        _login(userTest, lectureTest, resultTest);
 
     }
 
@@ -284,10 +284,12 @@ public class test {
     {
         boolean boolTEMP = true;
         int intTEMP = 0;
+        Scanner sc = new Scanner(System.in);
 
         while(boolTEMP)
         {
             System.out.println("Choose one:\tUser Table(1)\tLecture Table(2)\tResult Table(3)\tCheck Overlap(4)\tExit(5)");
+            intTEMP = sc.nextInt();
             switch (intTEMP)
             {
                 case 1:
@@ -309,8 +311,9 @@ public class test {
                 case 5:
                     System.out.println("Terminating");
                     boolTEMP = false;
+                    break;
 
-                case default:
+                default:
                     System.out.println("Wrong Choice, try Again");
                     break;
             }
@@ -321,12 +324,84 @@ public class test {
 
     public static void _STDMENU(ArrayList<_user> x, ArrayList<_lecture> y, ArrayList<_result> z, String ID)
     {
+        boolean boolTEMP = true;
+        int intTEMP;
+        Scanner sc = new Scanner(System.in);
 
+        while(boolTEMP) {
+            System.out.println("Choose one:\tGet Result(1)\tGet Exam Date(2)\t Exit(3)");
+            intTEMP = sc.nextInt();
+            switch (intTEMP)
+            {
+                case 1:
+                    _getResults(z, x, ID);
+                    break;
+
+                case 2:
+                    _getDate(x, y, ID);
+                    break;
+
+                case 3:
+                    System.out.println("Terminating");
+                    boolTEMP = false;
+                    break;
+
+                default:
+                    System.out.println("Wrong Choice, try Again");
+                    break;
+
+            }
+
+        }
+        System.out.println("BYE STUDENT");
     }
 
-    public static void _LCTMENU(ArrayList<_lecture> x, ArrayList<_result> y,)
+    public static void _LCTMENU(ArrayList<_lecture> x, ArrayList<_result> y)
     {
+        boolean boolTEMP = true;
+        int intTEMP;
+        Scanner sc = new Scanner(System.in);
+        String tempID;
+        String tempCODE;
 
+        String TempDATE;
+        String tempHOUR;
+
+        while (boolTEMP)
+        {
+            System.out.println("Choose one:\tSet Exam Results(1)\tSet Exam Date(2)\tCheck Overlap(3)\tExit(4)");
+            intTEMP = sc.nextInt();
+            switch (intTEMP)
+            {
+                case 1:
+                    System.out.println("Which Student?");
+                    tempID = sc.nextLine();
+                    System.out.println("Which LECTURE?");
+                    tempCODE = sc.nextLine();
+                    _setExamResults(y, tempCODE, tempID);
+                    break;
+
+                case 2:
+                    System.out.println("Which Lecture?");
+                    tempCODE = sc.nextLine();
+                    _setExamDate(x, tempCODE);
+                    _examOverlap(x);
+                    break;
+
+                case 3:
+                    System.out.println("Terminating");
+                    boolTEMP = false;
+                    break;
+
+                case 4:
+                    _examOverlap(x);
+
+                default:
+                    System.out.println("Wrong Choice");
+                    break;
+
+            }
+        }
     }
     ///////////////////////////////////////////////////////////////////////////////
 
