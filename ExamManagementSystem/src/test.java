@@ -154,6 +154,7 @@ public class test {
     }
 
     public static void _getDate(ArrayList<_user> x, ArrayList<_lecture> y, String ID) {
+
         String tempCODE;
 
         for (int i = 0; i < x.size(); i++) {
