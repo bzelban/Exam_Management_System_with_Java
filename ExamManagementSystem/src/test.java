@@ -30,7 +30,7 @@
             User ID: Char(11)
             PASSWORD: Char(6-12)
             ACCOUNT TYPE: STD, LCT, DEV
-            LECTURE CODE(s): CharList(4)
+            LECTURE CODE(s): CharList(10)
 
 
             USER ID  /  PASSWORD  /  ACCOUNT TYPE  /  LECTURE CODE(s)  / *PASSWORD DATE
@@ -44,7 +44,7 @@
          /*
             Design: LECTURE TABLE
 
-            LECTURE CODE: Char(4)
+            LECTURE CODE: Char(10)
             LECTURE NAME: Char(25)
             EXAM DATE: Date(DD.MM.YYYY)
             EXAM HOUR: Hour(HH:MM)
@@ -54,11 +54,11 @@
                 LCT: r- w- --
                 DEV: r- w- rw
 
-            LECTURE CODE  /  LECTURE NAME  /  EXAM DATE  / EXAM HOUR
-            .                .                .            .
-            .                .                .            .
-            .                .                .            .
-            .                .                .            .
+            LECTURE CODE  /  LECTURE NAME  /  EXAM DATE  / EXAM HOUR  /  SUBJ
+            .                .                .            .             .
+            .                .                .            .             .
+            .                .                .            .             .
+            .                .                .            .             .
 
          */
 
@@ -83,6 +83,14 @@
           */
 
 
+/*
+OBSERVER NOTES V1
+
+Comments and JUnit tests are needed
+Check: String Compare ArrayList / == may not works in the main
+
+ */
+
 import java.io.FileNotFoundException;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -93,27 +101,55 @@ public class test {
 
 
     //////////////////////DEV PART/////////////////////////////////////////
+    //This part is used by DEV users menu
     public static void _getUserTable(ArrayList<_user> obj) {
 
+        /*
+        _getUserTable: This function gets _user ArrayList as obj parameter,
+        prints the _user table if it is not null, returns void
+        _user: Table includes USER ID, PASSWORD, ACCOUNT TYPE, LECTURE CODE, PASSWORD DATE
+        */
         if (obj != null) {
             _user.print((ArrayList<_user>) obj);
         }
     }
 
+
     public static void _getLectureTable(ArrayList<_lecture> obj) {
+
+        /*
+        _getLectureTable: This function gets _lecture ArrayList as obj parameter,
+        prints the _lecture table if it is not null, returns void
+        _lecture: Table includes LECTURE CODE, LECTURE NAME, EXAM DATE, EXAM HOUR
+        */
         if (obj != null) {
             _lecture.print((ArrayList<_lecture>) obj);
         }
 
     }
 
+
     public static void _getResultTable(ArrayList<_result> obj) {
+
+        /*
+        _getResultTable: This function gets _result ArrayList as obj parameter,
+        prints the _result table if it is not null, returns void
+        _result: Table includes STUDENT ID, LECTURE CODE, Midterm 1, Midterm 2, Final
+        */
         if (obj != null) {
             _result.print((ArrayList<_result>) obj);
         }
     }
 
+
     public static void _examOverlap(ArrayList<_lecture> x) {
+
+        /*
+         _examOverlap: This functions gets _lecture ArrayList as x parameter, checks all the
+         with the nested for loops EXAM DATE with getDATE() function from _lecture object,
+         if finds any equalities gets the code of one overlapping exam date, then runs
+         setDATE() function from _result object, gets new date from DEV. Returns void.
+        */
         Scanner sc = new Scanner(System.in);
 
         String x1;
@@ -135,7 +171,15 @@ public class test {
     ///////////////////////////////////////////////////////////////////////////////////
 
     ////////////////////////////////////////STD PART////////////////////////////////
+    //This part is used by STD users menu
     public static void _getResults(ArrayList<_result> x, ArrayList<_user> y, String ID) {
+
+        /*
+        _getResults: This function gets _result ArrayList as x parameter, gets _user Arraylist
+        as y and STD user String as ID, if ID is found in _user USER ID table, then checks _result
+        table to find the same ID to print results with toString() function from _result object.
+        Returns void.
+        */
 
         String tempCODE;
 
@@ -154,6 +198,12 @@ public class test {
 
     public static void _getDate(ArrayList<_user> x, ArrayList<_lecture> y, String ID) {
 
+        /*
+        _getDate: This function gets _user ArrayList as x parameter, gets _lecture ArrayList as y
+        parameter and STD user String as ID, if ID is found in _user USER ID table then gets
+        the LECTURE CODE. After getting LECTURE CODE, checks _lecture table to print related
+        date with getDATE() and hour with getHOUR() in the table. Returns void.
+        */
         String tempCODE;
 
         for (int i = 0; i < x.size(); i++) {
@@ -172,7 +222,15 @@ public class test {
     ///////////////////////////////////////////////////////////////////////////////////
 
     ///////////////////////////////////LCT////////////////////////////////////////////
+    //This part is used by LCT users menu
     public static void _setExamResults(ArrayList<_result> x, String CODE, String ID) {
+
+        /*
+        _setExamResults: This function gets _result ArrayList as x parameter, gets LCT input String
+        as CODE and gets LCT input String as ID. If ID is found in _results table then gets inpurts
+        from LCT to change _results table tuples that Midterm 1 with setMT1(), Midterm 2 with setMT2()
+        and final with setFINAL() functions. If ID is not found, prints "No Lectures Found". Return void.
+        */
         Scanner sc = new Scanner(System.in);
         System.out.println("Changing Exam results of " + CODE);
 
@@ -201,6 +259,13 @@ public class test {
     }
 
     public static void _setExamDate(ArrayList<_lecture> x, String CODE) {
+
+        /*
+        _setExamDate: This function gets _lecture ArrayList as x parameter, gets LCT input String
+        as CODE. If CODE is found in _lecture table then gets inpurts from LCT to change _lecture table
+        tuples that EXAM DATE with setDATE(), EXAM HOUR with setHOUR() and SUBJ with setSUBJ() functions.
+        IF CODE is not found, prints  "$CODE NOT FOUND!". Returns void
+        */
         Scanner sc = new Scanner(System.in);
 
         for (int i = 0; i < x.size(); i++) {
@@ -224,8 +289,14 @@ public class test {
     ////////////////////////////////////////////////////////////////////////////////
 
     ////////////////////////////////MENU PART///////////////////////////////////////
+    //This part includes Global and Partial menu functions
     public static void _START(ArrayList<_user> userTest, ArrayList<_lecture> lectureTest, ArrayList<_result> resultTest)
     {
+        /*
+        _START(): This functions gets _users, _lecture, _result tables as parameters and runs _login() function with
+        parameters. Returns void.
+        */
+
         System.out.println("WELCOME TO EXAM MANAGEMENT SYSTEM\n");
 
         _login(userTest, lectureTest, resultTest);
@@ -234,6 +305,12 @@ public class test {
 
     public static void _login(ArrayList<_user> userTEST, ArrayList<_lecture> lectureTest, ArrayList<_result> resultTEST)
     {
+        /*
+            _login: This function gets _users, _lecture, _results tables as parameters, gets input ID from user,
+            checks if ID found. then gets PASSWORD from user and checks if ID and PASSWORD are in the same row.
+            If PASSWORD and ID are at the same row, runs _userTYPE() function with paramteres additionally ID as tempID
+            and TYPE as tempTYPE. Also gets TYPE from _user table. Returns void.
+        */
         Scanner sc = new Scanner(System.in);
         System.out.println("ID?: ");
         String tempID = sc.nextLine();
@@ -241,11 +318,13 @@ public class test {
         String tempTYPE;
         for(int i = 0; i < userTEST.size(); i++)
         {
+            //System.out.println(userTEST.get(1).getPASSWORD());
             if(userTEST.get(i).getID() == tempID)
             {
                 System.out.println("PASSWD?: ");
                 tempPASS = sc.nextLine();
-                if(userTEST.get(i).getPASSWORD() == tempPASS)
+
+                if(userTEST.get(0).getPASSWORD() == tempPASS)
                 {
                     System.out.println("Login Success");
                     tempTYPE = userTEST.get(i).getTYPE();
@@ -258,6 +337,11 @@ public class test {
 
     public static void _userTYPE(String ID, String TYPE, ArrayList<_user> userTest, ArrayList<_lecture> lectureTEST, ArrayList<_result> resultTEST )
     {
+
+        /*
+        _userTYPE: This function gets user input parameters as ID and TYPE, also _user, _lecture, _result tables.
+        Checks TYPE is valid. If TYPE valid, runs _DEVMENU(), _STDMENU(), _LCTMENU() functions to related types.
+        */
         if(TYPE == "DEV")
         {
             System.out.println("Welcome EXAM MANAGER");
@@ -282,6 +366,9 @@ public class test {
 
     public static void _DEVMENU(ArrayList<_user> x, ArrayList<_lecture> y, ArrayList<_result> z)
     {
+        /*
+        _DEVMENU: This function shows and runs DEV related functions in as switch-case within a loop
+         */
         boolean boolTEMP = true;
         int intTEMP = 0;
         Scanner sc = new Scanner(System.in);
@@ -324,6 +411,10 @@ public class test {
 
     public static void _STDMENU(ArrayList<_user> x, ArrayList<_lecture> y, ArrayList<_result> z, String ID)
     {
+
+        /*
+        _STDMENU: This function shows and runs STD related functions in as switch-case within a loop
+        */
         boolean boolTEMP = true;
         int intTEMP;
         Scanner sc = new Scanner(System.in);
@@ -358,6 +449,9 @@ public class test {
 
     public static void _LCTMENU(ArrayList<_lecture> x, ArrayList<_result> y)
     {
+          /*
+        _LCTMENU: This function shows and runs LCT related functions in as switch-case within a loop
+        */
         boolean boolTEMP = true;
         int intTEMP;
         Scanner sc = new Scanner(System.in);
@@ -407,19 +501,17 @@ public class test {
 
     public static void main(String[] args) {
 
-
-
         ArrayList<_user> denemeUser = _user._createUserTable();
         ArrayList<_lecture> denemeLecture = _lecture._createLectureTable();
         ArrayList<_result> denemeResult = _result._createResultTable();
 
-
-        _user.print(denemeUser);
+        /*
+         _user.print(denemeUser);
         System.out.println(" ");
         _lecture.print(denemeLecture);
         System.out.println(" ");
         _result.print(denemeResult);
-
+        */
         _START(denemeUser, denemeLecture, denemeResult);
     }
 
