@@ -8,6 +8,10 @@ class _user {
     String CODE;
     String PW_DATE;
 
+    public _user() {
+
+    }
+
     public void setID(String ID) {
         this.ID = ID;
     }
