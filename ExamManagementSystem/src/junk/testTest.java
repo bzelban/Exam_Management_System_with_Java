@@ -1,3 +1,4 @@
+/*
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 
@@ -66,3 +67,5 @@ class testTest {
     void _LCTMENU() {
     }
 }
+
+*/
