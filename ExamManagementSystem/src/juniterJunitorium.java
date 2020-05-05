@@ -1,32 +1,15 @@
+import org.junit.jupiter.api.Test;
+
 import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 
-/*
-1.	The entered user id can be more than 11 characters
-2.	The entered user id can be less than 11 characters
-3.	The entered password can be less than 6 characters
-4.	The entered password can be more than 12 characters
-5.	The entered id may not be identified
-6.	The entered password may not be valid
-7.	Lecture code can be more than 4 characters
-8.	Lecture code can be less than 4 characters
-9.	Lecture code can be incorrect format
-10.	Exam dates can be overlapped
-11.	Exam dates can be incorrect format
-12.	Exam hours can be incorrect format
-13.	Password changing need may not be announced in the necessary time
-14.	Response time can be more than 10 sec. when user requests to log in are overridden
-15.	The system may not keep record the exam results with time
-16.	Changes of exam dates may not be announced to students at the same time with their shipping
-17.	Lecture name can be more than 25 characters
-18.	Lecture name can be more than 25 characters
-19.	The system may not crosscheck the exam dates/hours
-*/
-
 
 class juniterJunitorium {
+    ArrayList<_user> denemeUser = _user._createUserTable();
+    ArrayList<_lecture> denemeLecture = _lecture._createLectureTable();
+    ArrayList<_result> denemeResult = _result._createResultTable();
 
     @org.junit.jupiter.api.Test
     void _getUserTable() {
@@ -63,15 +46,80 @@ class juniterJunitorium {
     }
 
     @org.junit.jupiter.api.Test
-    void _START_user() {
-        ArrayList<_user> denemeUser = _user._createUserTable();
+    void _START_user_pozitive() {
+
         String str = denemeUser.get(2).getID();
         assertEquals("1111", str);
+        // Base User List is not Null and String ID checks ok
 
+        str = denemeUser.get(2).getPASSWORD();
+        assertEquals("1111", str);
+        // PASSWORD checks ok
+
+        str = denemeUser.get(2).getTYPE();
+        assertEquals("DEV", str);
+        // TYPE checks ok
+
+        str = denemeUser.get(4).getCODE();
+        assertEquals("CS50", str);
+        // CODE checks are ok from different USR
+
+        str = denemeUser.get(8).getPW_DATE();
+        assertEquals("2020-6-10", str);
+        // PW_DATE checks from different USR
+
+    }
+    @Test
+    void _START_user_negative(){
+
+        String str = denemeUser.get(11).getPASSWORD();
+         assertEquals("1111", str);
+         // Base User List is not Null and String. Also Password checks are ok
+
+        str = denemeUser.get(11).getID();
+        assertEquals("aaa", str);
+        // ID checks are ok
+
+        str = denemeUser.get(11).getTYPE();
+        assertEquals("bbb", str);
+        // TYPE checks are ok
+    }
+
+    @Test
+    void _START_lecture_pozitive(){
+
+        String str = denemeLecture.get(2).getCODE();
+        assertEquals("SE60", str);
+        // Base Lecture List is not Null and String. Also CODE checks are ok
+    }
+
+    @Test
+    void _START_lecture_negative(){
+        String str = denemeLecture.get(5).getCODE();
+        assertEquals("SE221", str);
+        // Base Lecture List is not Null and String. Also Code checks are ok
+    }
+
+    @Test
+    void _START_result_pozitive(){
+        String str = denemeResult.get(2).getFINAL();
+        assertEquals("40", str);
+        // Base Result List is not Null and String. Also FINAL checks are ok
+    }
+
+    @Test
+    void _START_result_negative(){
+        String str = denemeResult.get(2).getMT1();
+        assertEquals("50", str);
+        // Base Result List is not Null and String. Also MT1 checks are ok
+
+        str = denemeResult.get(2).getMT2();
+        assertEquals("45", str);
     }
 
     @org.junit.jupiter.api.Test
     void _login() {
+
     }
 
     @org.junit.jupiter.api.Test
