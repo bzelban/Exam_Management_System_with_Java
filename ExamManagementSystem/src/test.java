@@ -158,7 +158,7 @@ public class test {
             x1 = x.get(i).getDATE();
             for (int j = 0; j < x.size(); j++) {
                 x2 = x.get(j).getDATE();
-                if (x1 == x2) {
+                if (x1.equalsIgnoreCase(x2)) {
                     System.out.println("OVERLAP FOUND!\nChange " + x.get(j).getCODE() + " Date");
                     System.out.println("FORMAT IS: YYYY-MM-DD");
                     x.get(j).setDATE(sc.nextLine());
@@ -188,7 +188,7 @@ public class test {
                 tempCODE = y.get(i).getCODE();
 
                 for (int j = 0; j < x.size(); j++) {
-                    if (tempCODE == x.get(j).getCODE() && ID == y.get(j).getID()) {
+                    if (tempCODE.equalsIgnoreCase(x.get(j).getCODE())&& ID.equalsIgnoreCase(y.get(j).getID())) {
                         System.out.println(_result.toString(x.get(j)));
                     }
                 }
@@ -207,11 +207,11 @@ public class test {
         String tempCODE;
 
         for (int i = 0; i < x.size(); i++) {
-            if (ID == x.get(i).getID()) {
+            if (ID.equalsIgnoreCase(x.get(i).getID())) {
                 tempCODE = x.get(i).getCODE();
 
                 for (int j = 0; j < y.size(); j++) {
-                    if (tempCODE == y.get(j).getCODE()) {
+                    if (tempCODE.equalsIgnoreCase(y.get(j).getCODE())) {
                         System.out.println(y.get(j).getDATE() + " and " + y.get(j).getHOUR());
 
                     }
@@ -235,7 +235,7 @@ public class test {
         System.out.println("Changing Exam results of " + CODE);
 
         for (int i = 0; i < x.size(); i++) {
-            if (CODE == x.get(i).getCODE() && ID == x.get(i).getID()) {
+            if (CODE.equalsIgnoreCase(x.get(i).getCODE()) && ID.equalsIgnoreCase(x.get(i).getID())) {
                 if (x.get(i).getMT1() == " ") {
                     System.out.println("Changing Midterm 1 Result of " + CODE + " for Student " + ID);
                     x.get(i).setMT1(sc.nextLine());
@@ -342,17 +342,17 @@ public class test {
         _userTYPE: This function gets user input parameters as ID and TYPE, also _user, _lecture, _result tables.
         Checks TYPE is valid. If TYPE valid, runs _DEVMENU(), _STDMENU(), _LCTMENU() functions to related types.
         */
-        if(TYPE == "DEV")
+        if(TYPE.equalsIgnoreCase("DEV") )//"DEV")
         {
             System.out.println("Welcome EXAM MANAGER");
             _DEVMENU(userTest, lectureTEST, resultTEST);
         }
-        else if(TYPE == "STD")
+        else if(TYPE.equalsIgnoreCase("STD")) // "STD")
         {
             System.out.println("Welcome STUDENT");
             _STDMENU(userTest, lectureTEST, resultTEST, ID);
         }
-        else if(TYPE == "LCT")
+        else if(TYPE .equalsIgnoreCase("LCT")) //"LCT")
         {
             System.out.println("Welcome LECTURER");
             _LCTMENU(lectureTEST, resultTEST);
