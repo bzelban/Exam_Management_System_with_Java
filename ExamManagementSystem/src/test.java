@@ -319,12 +319,12 @@ public class test {
         for(int i = 0; i < userTEST.size(); i++)
         {
             //System.out.println(userTEST.get(1).getPASSWORD());
-            if(userTEST.get(i).getID() == tempID)
+            if(userTEST.get(i).getID().equalsIgnoreCase(tempID)) //PASSED
             {
                 System.out.println("PASSWD?: ");
-                tempPASS = sc.nextLine();
-
-                if(userTEST.get(0).getPASSWORD() == tempPASS)
+                tempPASS = sc.next();
+                //System.out.println("pass recorded");
+                if(userTEST.get(i).getPASSWORD().equalsIgnoreCase(tempPASS)) //PASSED
                 {
                     System.out.println("Login Success");
                     tempTYPE = userTEST.get(i).getTYPE();
@@ -497,7 +497,7 @@ public class test {
             }
         }
     }
-    
+
     ///////////////////////////////////////////////////////////////////////////////
 
     public static void main(String[] args) {
