@@ -1,4 +1,14 @@
+import java.util.ArrayList;
+
 import static org.junit.jupiter.api.Assertions.*;
+
+
+/*
+WRITE YOUR TEST CASES HERE
+
+
+*/
+
 
 class juniterJunitorium {
 
@@ -37,7 +47,10 @@ class juniterJunitorium {
     }
 
     @org.junit.jupiter.api.Test
-    void _START() {
+    void _START_user() {
+        ArrayList<_user> denemeUser = _user._createUserTable();
+        String str = denemeUser.get(2).getID();
+        assertEquals("1111", str);
 
     }
 
