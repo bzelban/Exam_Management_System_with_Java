@@ -42,6 +42,9 @@ class _lecture {
     public String getSUBJ() { return SUBJ; }
 
     public void setSUBJ(String SUBJ) { this.SUBJ = SUBJ; }
+    public _lecture(){
+
+    }
 
 
 
