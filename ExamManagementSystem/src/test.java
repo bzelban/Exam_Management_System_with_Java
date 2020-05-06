@@ -237,15 +237,15 @@ public class test {
 
         for (int i = 0; i < x.size(); i++) {
             if (CODE.equalsIgnoreCase(x.get(i).getCODE()) && ID.equalsIgnoreCase(x.get(i).getID())) {
-                if (x.get(i).getMT1() == " ") {
+                if (x.get(i).getMT1().equalsIgnoreCase("")) {
                     System.out.println("Changing Midterm 1 Result of " + CODE + " for Student " + ID);
                     x.get(i).setMT1(sc.nextLine());
                     sc.close();
-                } else if (x.get(i).getMT2() == " ") {
+                } else if (x.get(i).getMT2().equalsIgnoreCase("")) {
                     System.out.println("Changing Midterm 2 Resulf of " + CODE + " for Student " + ID);
                     x.get(i).setMT2(sc.nextLine());
                     sc.close();
-                } else if (x.get(i).getFINAL() == " ") {
+                } else if (x.get(i).getFINAL().equalsIgnoreCase("")) {
                     System.out.println("Changing Final Resulf of " + CODE + " for Student " + ID);
                     x.get(i).setFINAL(sc.next());
                     sc.close();
@@ -270,7 +270,7 @@ public class test {
         Scanner sc = new Scanner(System.in);
 
         for (int i = 0; i < x.size(); i++) {
-            if (CODE == x.get(i).getCODE()) {
+            if (CODE.equalsIgnoreCase(x.get(i).getCODE())) {
                 System.out.println("Setting Exam Date\nGive exam date as YYYY-MM-DD");
                 x.get(i).setDATE(sc.nextLine());
                 System.out.println("Give exam hour as HH-MM");
