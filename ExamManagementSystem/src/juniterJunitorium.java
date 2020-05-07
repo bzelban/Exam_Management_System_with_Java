@@ -11,6 +11,7 @@ class juniterJunitorium {
     ArrayList<_result> denemeResult = _result._createResultTable();
 
     String str = "";
+    int tempX = 0;
 
     //User object (ArrayList Database) POZITIVE is checks as ok
     @org.junit.jupiter.api.Test
@@ -181,31 +182,112 @@ class juniterJunitorium {
     */
 
     @org.junit.jupiter.api.Test
-    void _getResults() {
+    void _getResults() { // 14 - 1
+
+        str = denemeResult.get(3).getFINAL();
+        assertEquals("40", str);
+
     }
+
+    /*
 
     @org.junit.jupiter.api.Test
-    void _getDate() {
+    void _getResults(){ //15 - 1
+
+        str = denemeResult.get(3).getFINAL();
+        assertEquals("10", str);
     }
+     */
 
     @org.junit.jupiter.api.Test
-    void _setExamResults() {
+    void _getDate() { //16-1
+        str = denemeLecture.get(11).getDATE();
+        assertEquals("2020-6-3", str);
     }
+
+    /*
+    @org.junit.jupiter.api.Test
+
+    void _getDate() { // 17 - 1
+        str = denemeLecture.get(11).getDate();
+        assertEquals("1970-1-1", str);
+    }
+    */
 
     @org.junit.jupiter.api.Test
-    void _setExamDate() {
+    void _setExamResults() { // 18 - 1
+        str = denemeResult.get(2).getMT1();
+        assertEquals("", str);
     }
+
+    /*
+    @org.junit.jupiter.api.Test
+    void _setExamResults(){ // 19 - 1
+        str = denemeResult.get(2).getMT2();
+        assertEquals("x", str);
+    }
+     */
 
 
     @org.junit.jupiter.api.Test
-    void _login() {
-
+    void _setExamDate(){ // 20-1
+        str = denemeLecture.get(10).getDATE();
+        assertEquals("2020-5-20", str);
     }
+
+
+    /*
+    @org.junit.jupiter.api.Test
+    void _setExamDate()  // 21 - 1
+    {
+        str = denemeLecture.get(10).getDATE();
+        assertEquals("1970-1-1", str);
+    }
+    */
 
     @org.junit.jupiter.api.Test
-    void _userTYPE() {
+    void _login() { // 22 - 2
+
+        tempX = 6;
+
+        str = denemeUser.get(tempX).getID();
+        assertEquals("5555", str);
+
+        str = denemeUser.get(tempX).getPASSWORD();
+        assertEquals("5555", str);
+
     }
 
+    /*
+    @org.junit.jupiter.api.Test
+    void _login(){ // 23 - 2
+        tempX = 5;
+        str = denemeUser.get(tempX).getID();
+        assertEquals("5555", str);
+
+        str = denemeUser.get(tempX).getPASSWORD();
+        assertEquals("5555", str);
+    }
+    */
+
+    @org.junit.jupiter.api.Test
+    void _userTYPE() { // 24 - 1
+        tempX = 12;
+        str = denemeUser.get(tempX).getTYPE();
+        assertEquals("STD", str);
+    }
+
+    /*
+    @org.junit.jupiter.api.Test
+    void _userTYPE() { // 25 - 1
+        tempX = 11;
+        str = denemeUser.get(tempX).getTYPE();
+        assertEquals("STR", str);
+
+    }
+    */
+
+    /*
     @org.junit.jupiter.api.Test
     void _DEVMENU() {
     }
@@ -217,8 +299,70 @@ class juniterJunitorium {
     @org.junit.jupiter.api.Test
     void _LCTMENU() {
     }
+    */
 
     @org.junit.jupiter.api.Test
-    void main() {
+    void main() { // main - 15
+
+        str = denemeUser.get(2).getID();
+        assertEquals("1111", str);
+        // Base User List is not Null and String ID checks ok
+
+        str = denemeUser.get(2).getPASSWORD();
+        assertEquals("1111", str);
+        // PASSWORD checks ok
+
+        str = denemeUser.get(2).getTYPE();
+        assertEquals("DEV", str);
+        // TYPE checks ok
+
+        str = denemeUser.get(4).getCODE();
+        assertEquals("CS50", str);
+        // CODE checks are ok from different USR
+
+        str = denemeUser.get(8).getPW_DATE();
+        assertEquals("2020-6-10", str);
+        // PW_DATE checks from different USR
+
+        str = denemeUser.get(11).getPASSWORD();
+        assertEquals("1111", str);
+        // Base User List is not Null and String. Also Password checks are ok
+
+        str = denemeUser.get(11).getID();
+        assertEquals("aaa", str);
+        // ID checks are ok
+
+        str = denemeUser.get(11).getTYPE();
+        assertEquals("bbb", str);
+        // TYPE checks are ok
+
+        str = denemeUser.get(11).getCODE();
+        assertEquals("lılıl", str);
+        // CODE checks are ok
+
+        str = denemeUser.get(11).getPW_DATE();
+        assertEquals("bbbb", str);
+        // PW_DATE checks are ok
+
+        str = denemeLecture.get(2).getCODE();
+        assertEquals("SE60", str);
+        // Base Lecture List is not Null and String. Also CODE checks are ok
+
+        str = denemeLecture.get(5).getCODE();
+        assertEquals("SE221", str);
+        // Base Lecture List is not Null and String. Also Code checks are ok
+
+        str = denemeResult.get(2).getFINAL();
+        assertEquals("40", str);
+        // Base Result List is not Null and String. Also FINAL checks are ok
+
+        str = denemeResult.get(2).getMT1();
+        assertEquals("50", str);
+        // Base Result List is not Null and String. Also MT1 checks are ok
+
+        str = denemeResult.get(2).getMT2();
+        assertEquals("45", str);
+
+
     }
 }
