@@ -14,7 +14,7 @@ class juniterJunitorium {
     int tempX = 0;
 
     //User object (ArrayList Database) POZITIVE is checks as ok
-    @org.junit.jupiter.api.Test
+  /*  @org.junit.jupiter.api.Test
     void _START() { // 1 - 5
 
         str = denemeUser.get(2).getID();
@@ -39,11 +39,12 @@ class juniterJunitorium {
 
     }
 
-    /*
+*/
     //User object NEGATIVE is checks as OK
+  /*  @org.junit.jupiter.api.Test
     void _START() { // 2 - 5
 
-        str = denemeUser.get(11).getPASSWORD();
+      /*  str = denemeUser.get(11).getPASSWORD();
         assertEquals("1111", str);
         // Base User List is not Null and String. Also Password checks are ok
 
@@ -63,34 +64,45 @@ class juniterJunitorium {
         assertEquals("bbbb", str);
         // PW_DATE checks are ok
     }
-
+*/
     //Lecture Object checks ok as pozitive
-    @Test
+   /* @Test
     void _START() { // 3 - 1
 
         str = denemeLecture.get(2).getCODE();
         assertEquals("SE60", str);
         // Base Lecture List is not Null and String. Also CODE checks are ok
     }
-
+*/
     //Lecture object checks ok as negative
-    @Test
+  /*  @Test
     void _START() { // 4 - 1
         str = denemeLecture.get(5).getCODE();
         assertEquals("SE221", str);
         // Base Lecture List is not Null and String. Also Code checks are ok
     }
+    */
+
 
     //Result object checks ok as pozitive
-    @Test
+ /*   @Test
     void _START() { // 5 - 1
         str = denemeResult.get(2).getFINAL();
         assertEquals("40", str);
         // Base Result List is not Null and String. Also FINAL checks are ok
     }
-
+*/
     //Result object checks ok as negative
+
     @Test
+    void _START() { // 5 - 1
+        str = denemeResult.get(2).getFINAL();
+        assertEquals("50", str);
+        // Base Result List is not Null and String. Also FINAL checks are ok
+    }
+
+
+  /*  @Test
     void _START() { // 6 - 2
         str = denemeResult.get(2).getMT1();
         assertEquals("50", str);
@@ -100,10 +112,9 @@ class juniterJunitorium {
         assertEquals("45", str);
 
     }
-    */
 
-    @org.junit.jupiter.api.Test
-    void _getUserTable() { // 7 - 1
+/*
+         void _getUserTable() { // 7 - 1
 
         str = denemeUser.get(5).getID();
         assertEquals("4444", str);
@@ -120,24 +131,23 @@ class juniterJunitorium {
     }
     */
 
-    @org.junit.jupiter.api.Test
+  /*  @org.junit.jupiter.api.Test
     void _getLectureTable() { // 8 - 1
         str = denemeLecture.get(7).getCODE();
         assertEquals("SE221", str);
         //LectureTable checks in _getLectureTable() as Pozitive
-
-
+/
     }
+*/
 
-    /*
-    @org.junit.jupiter.api.Test
+   /* @org.junit.jupiter.api.Test
     void _getLectureTable() // 9 - 1
     {
         str = denemeLecture.get(7).getCODE();
         assertEquals("MATH153", str);
         //LectureTable checks in_getLectureTable() as Negative
     }
-    */
+
 
     @org.junit.jupiter.api.Test
     void _getResultTable() { // 10 - 1
@@ -158,7 +168,7 @@ class juniterJunitorium {
     }
     */
 
-    @org.junit.jupiter.api.Test
+   /* @org.junit.jupiter.api.Test
     void _examOverlap() { // 12 - 2
 
         str = denemeLecture.get(3).getDATE();
@@ -167,31 +177,31 @@ class juniterJunitorium {
         str = denemeLecture.get(3).getHOUR();
         assertEquals("16.00", str);
     }
+*/
 
-    /*
-    @Test
+   /* @Test
     void _examOverlap(){ // 13 - 2
 
         str = denemeLecture.get(3).getDATE();
         assertEquals("",str);
 
-        str = denemeLecture.get(3).getDATE();
+        str = denemeLecture.get(3).getHOUR();
         assertEquals("",str);
 
     }
-    */
+*/
 
-    @org.junit.jupiter.api.Test
+   /* @org.junit.jupiter.api.Test
     void _getResults() { // 14 - 1
 
-        str = denemeResult.get(3).getFINAL();
-        assertEquals("40", str);
+        str = denemeResult.get(2).getFINAL();
+        assertEquals("50", str);
 
     }
 
-    /*
+*/
 
-    @org.junit.jupiter.api.Test
+  /*  @org.junit.jupiter.api.Test
     void _getResults(){ //15 - 1
 
         str = denemeResult.get(3).getFINAL();
@@ -199,53 +209,64 @@ class juniterJunitorium {
     }
      */
 
-    @org.junit.jupiter.api.Test
+  /*  @org.junit.jupiter.api.Test
     void _getDate() { //16-1
         str = denemeLecture.get(11).getDATE();
         assertEquals("2020-6-3", str);
     }
+*/
 
-    /*
-    @org.junit.jupiter.api.Test
+   /* @org.junit.jupiter.api.Test
 
     void _getDate() { // 17 - 1
-        str = denemeLecture.get(11).getDate();
+        str = denemeLecture.get(11).getDATE();
         assertEquals("1970-1-1", str);
     }
-    */
 
-    @org.junit.jupiter.api.Test
+
+ /*   @org.junit.jupiter.api.Test
     void _setExamResults() { // 18 - 1
         str = denemeResult.get(2).getMT1();
-        assertEquals("", str);
+        assertEquals("50", str);
     }
 
-    /*
-    @org.junit.jupiter.api.Test
+*/
+  /* @org.junit.jupiter.api.Test
+   void _setExamResults() { // 18 - 1
+       str = denemeResult.get(2).getMT1();
+       assertEquals("-1", str);}
+*/
+
+   /* @org.junit.jupiter.api.Test
     void _setExamResults(){ // 19 - 1
         str = denemeResult.get(2).getMT2();
         assertEquals("x", str);
     }
-     */
+*/
+   @org.junit.jupiter.api.Test
+   void _setExamResults() { // 19 - 1
+       str = denemeResult.get(2).getMT2();
+       assertEquals("45", str);
+   }
 
 
-    @org.junit.jupiter.api.Test
+  /*  @org.junit.jupiter.api.Test
     void _setExamDate(){ // 20-1
         str = denemeLecture.get(10).getDATE();
         assertEquals("2020-5-20", str);
     }
+*/
 
 
-    /*
-    @org.junit.jupiter.api.Test
+   /* @org.junit.jupiter.api.Test
     void _setExamDate()  // 21 - 1
     {
         str = denemeLecture.get(10).getDATE();
         assertEquals("1970-1-1", str);
     }
-    */
+*/
 
-    @org.junit.jupiter.api.Test
+ /*   @org.junit.jupiter.api.Test
     void _login() { // 22 - 2
 
         tempX = 6;
@@ -257,9 +278,9 @@ class juniterJunitorium {
         assertEquals("5555", str);
 
     }
+*/
 
-    /*
-    @org.junit.jupiter.api.Test
+  /*  @org.junit.jupiter.api.Test
     void _login(){ // 23 - 2
         tempX = 5;
         str = denemeUser.get(tempX).getID();
@@ -268,24 +289,26 @@ class juniterJunitorium {
         str = denemeUser.get(tempX).getPASSWORD();
         assertEquals("5555", str);
     }
-    */
 
-    @org.junit.jupiter.api.Test
+*/
+  /*  @org.junit.jupiter.api.Test
     void _userTYPE() { // 24 - 1
         tempX = 12;
         str = denemeUser.get(tempX).getTYPE();
         assertEquals("STD", str);
     }
+*/
 
-    /*
-    @org.junit.jupiter.api.Test
+   /* @org.junit.jupiter.api.Test
     void _userTYPE() { // 25 - 1
         tempX = 11;
         str = denemeUser.get(tempX).getTYPE();
-        assertEquals("STR", str);
+        assertEquals("STD", str);
 
     }
+
     */
+
 
     /*
     @org.junit.jupiter.api.Test
