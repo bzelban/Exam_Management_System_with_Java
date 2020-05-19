@@ -155,6 +155,7 @@ public class test {
 
         String x1;
         String x2;
+
         for (int i = 0; i < x.size(); i++) {
             x1 = x.get(i).getDATE();
             for (int j = 0; j < x.size(); j++) {
@@ -163,7 +164,7 @@ public class test {
                     System.out.println("OVERLAP FOUND!\nChange " + x.get(j).getCODE() + " Date");
                     System.out.println("FORMAT IS: YYYY-MM-DD");
                     x.get(j).setDATE(sc.next());
-                    sc.close();
+                    
 
                 }
             }
