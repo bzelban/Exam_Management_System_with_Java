@@ -164,7 +164,6 @@ public class test {
                     System.out.println("OVERLAP FOUND!\nChange " + x.get(j).getCODE() + " Date");
                     System.out.println("FORMAT IS: YYYY-MM-DD");
                     x.get(j).setDATE(sc.next());
-                    
 
                 }
             }
@@ -240,11 +239,11 @@ public class test {
             if (CODE.equalsIgnoreCase(x.get(i).getCODE()) && ID.equalsIgnoreCase(x.get(i).getID())) {
                 if (x.get(i).getMT1().equalsIgnoreCase("")) {
                     System.out.println("Changing Midterm 1 Result of " + CODE + " for Student " + ID);
-                    x.get(i).setMT1(sc.nextLine());
+                    x.get(i).setMT1(sc.next());
                     sc.close();
                 } else if (x.get(i).getMT2().equalsIgnoreCase("")) {
                     System.out.println("Changing Midterm 2 Resulf of " + CODE + " for Student " + ID);
-                    x.get(i).setMT2(sc.nextLine());
+                    x.get(i).setMT2(sc.next());
                     sc.close();
                 } else if (x.get(i).getFINAL().equalsIgnoreCase("")) {
                     System.out.println("Changing Final Resulf of " + CODE + " for Student " + ID);

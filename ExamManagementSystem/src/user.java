@@ -80,9 +80,9 @@ class _user {
         userList.add(new _user("5555", "5555", "LCT", "", "2020-5-6"));
         userList.add(new _user("6666", "6666", "DEV", "", "2020-5-5"));
         userList.add(new _user("7777", "7777", "STD", "SE311", "2020-6-10"));
-        userList.add(new _user("8888", "8888", "LEC", "", "2020-6-14"));
+        userList.add(new _user("8888", "8888", "LCT", "", "2020-6-14"));
         userList.add(new _user("9999", "9999", "STD", "SE360", "2020-5-20"));
-        userList.add(new _user("1112", "1112", "LEC", "", "2020-5-15"));
+        userList.add(new _user("1112", "1112", "LCT", "", "2020-5-15"));
         userList.add(new _user("1113", "1113", "STD", "SE116", "2020-6-20"));
         userList.add(new _user("1114", "1114", "STD", "FIZ1", "2020-5-1"));
         userList.add(new _user("1115", "1115", "STD", "MATH240", "2020-7-11"));
