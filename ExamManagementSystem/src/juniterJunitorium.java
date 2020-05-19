@@ -94,14 +94,14 @@ class juniterJunitorium {
 */
     //Result object checks ok as negative
 
-    @Test
+ /*   @Test
     void _START() { // 5 - 1
         str = denemeResult.get(2).getFINAL();
         assertEquals("50", str);
         // Base Result List is not Null and String. Also FINAL checks are ok
     }
 
-
+*/
   /*  @Test
     void _START() { // 6 - 2
         str = denemeResult.get(2).getMT1();
