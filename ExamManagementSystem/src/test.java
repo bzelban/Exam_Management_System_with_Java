@@ -162,7 +162,7 @@ public class test {
                 if (x1.equalsIgnoreCase(x2)) {
                     System.out.println("OVERLAP FOUND!\nChange " + x.get(j).getCODE() + " Date");
                     System.out.println("FORMAT IS: YYYY-MM-DD");
-                    x.get(j).setDATE(sc.nextLine());
+                    x.get(j).setDATE(sc.next());
                     sc.close();
 
                 }
