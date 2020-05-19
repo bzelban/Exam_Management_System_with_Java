@@ -1,6 +1,7 @@
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
+import junit.runner.Version;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -13,8 +14,11 @@ class juniterJunitorium {
     String str = "";
     int tempX = 0;
 
+
+
+
     //User object (ArrayList Database) POZITIVE is checks as ok
-  /*  @org.junit.jupiter.api.Test
+    @org.junit.jupiter.api.Test
     void _START() { // 1 - 5
 
         str = denemeUser.get(2).getID();
@@ -39,7 +43,7 @@ class juniterJunitorium {
 
     }
 
-*/
+
     //User object NEGATIVE is checks as OK
   /*  @org.junit.jupiter.api.Test
     void _START() { // 2 - 5
@@ -326,6 +330,7 @@ class juniterJunitorium {
 
     @org.junit.jupiter.api.Test
     void main() { // main - 15
+        System.out.println("JUnit version is: " + Version.id());
 
         str = denemeUser.get(2).getID();
         assertEquals("1111", str);
